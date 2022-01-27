@@ -21,12 +21,27 @@ urlTextbox.pack()
 
 
 # file explorer
-# TODO: implementation
+# TODO: consider using ligtht grey dialog in textbox to indicate what it's for instead
+fileDgLabel = tk.Label(text="Folder to save the images in:")
+fileDgLabel.pack()
+
+fileDg = tk.Frame()
+fileDgTextbox = tk.Text(fileDg, height=1, width=20)
+fileDgTextbox.grid(row=0, column=0)
+
+def onFileDialog():
+    chosenDirectory = fd.askdirectory()
+    fileDgTextbox.delete("1.0", tk.END)
+    fileDgTextbox.insert(tk.INSERT, chosenDirectory)
+fileDgBtn = tk.Button(fileDg, text="Browse", command=onFileDialog)
+fileDgBtn.grid(row=0, column=1)
+fileDg.pack()
+
 
 # submit button
 def onSubmit():
-   # TODO: should extract the images and save them to specified file location
-   pass
+    # TODO: should extract the images and save them to specified file location
+    pass
 
 submitBtn = tk.Button(window, text="Submit", command=onSubmit)
 submitBtn.pack()
