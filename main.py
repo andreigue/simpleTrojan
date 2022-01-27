@@ -4,9 +4,19 @@
 import tkinter as tk
 from tkinter import filedialog as fd
 
+# window
 window = tk.Tk()
-greeting = tk.Label(text="Hello, Tkinter")
-greeting.pack()
+window.title("Website Image Extractor")
+window.geometry('400x200')
+
+
+# widgets
+urlLabel = tk.Label(text="Website to extract images from:")
+urlLabel.pack()
+urlTextbox = tk.Text(window, height = 1, width = 20)
+urlTextbox.pack()
+
+# loop
 window.mainloop()
 
 
