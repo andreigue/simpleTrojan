@@ -11,10 +11,27 @@ window.geometry('400x200')
 
 
 # widgets
+#-----
+
+# url textbox
 urlLabel = tk.Label(text="Website to extract images from:")
 urlLabel.pack()
 urlTextbox = tk.Text(window, height = 1, width = 20)
 urlTextbox.pack()
+
+
+# file explorer
+# TODO: implementation
+
+# submit button
+def onSubmit():
+   # TODO: should extract the images and save them to specified file location
+   pass
+
+submitBtn = tk.Button(window, text="Submit", command=onSubmit)
+submitBtn.pack()
+
+#-----
 
 # loop
 window.mainloop()
