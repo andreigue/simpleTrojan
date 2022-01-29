@@ -2,13 +2,13 @@
 #         which the user inputs. Ask to choose a folder within the system using a 
 #         pop-up file explorer. 
 import tkinter as tk
-from tkinter import filedialog as fd
+from tkinter import END, filedialog as fd
+import imagescraper
 
 # window
 window = tk.Tk()
 window.title("Website Image Extractor")
 window.geometry('400x200')
-
 
 # widgets
 #-----
@@ -38,10 +38,12 @@ fileDgBtn.grid(row=0, column=1)
 fileDg.pack()
 
 
+
 # submit button
 def onSubmit():
     # TODO: should extract the images and save them to specified file location
-    pass
+    global urlTextbox
+    website = urlTextbox.get("1.0", tk.END+'-1c')
 
 submitBtn = tk.Button(window, text="Submit", command=onSubmit)
 submitBtn.pack()
