@@ -33,17 +33,16 @@ def onFileDialog():
     chosenDirectory = fd.askdirectory()
     fileDgTextbox.delete("1.0", tk.END)
     fileDgTextbox.insert(tk.INSERT, chosenDirectory)
+
+def onSubmit():
+    global urlTextbox
+    websiteURL = urlTextbox.get("1.0", tk.END+'-1c')
+    save_path = fileDgTextbox.get("1.0", tk.END+'-1c')
+    imagescraper.getImgs(websiteURL, save_path)
+
 fileDgBtn = tk.Button(fileDg, text="Browse", command=onFileDialog)
 fileDgBtn.grid(row=0, column=1)
 fileDg.pack()
-
-
-
-# submit button
-def onSubmit():
-    # TODO: should extract the images and save them to specified file location
-    global urlTextbox
-    website = urlTextbox.get("1.0", tk.END+'-1c')
 
 submitBtn = tk.Button(window, text="Submit", command=onSubmit)
 submitBtn.pack()
