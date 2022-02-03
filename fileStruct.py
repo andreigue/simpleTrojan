@@ -18,7 +18,9 @@ def sendFile(file):         #TODO : remove and make its own module/class
     print("sending file ot main computer")
 
 def handleFilesAndDirs(folderPathList, curDepth = 0, maxDepth = 3):
-    for path in folderPathList:
+    for path, folder in zip(folderPathList, folders):
+        if curDepth==0:
+            print("========================= " + folder + " =========================")
         isZeroDepth = curDepth==0
         fileAndDirList = getFilesAndDirsInPath(path, isZeroDepth)
         for fileOrDir in fileAndDirList:
