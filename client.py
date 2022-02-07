@@ -3,7 +3,7 @@ import os
 
 SEPARATOR = "<SEPARATOR>"
 BUFFER_SIZE = 4096  # send 4096 bytes each time step
-HOST_IP = "192.168.1.101"
+HOST_IP = "XX.XX.XX.XXX" # public IP address of server 
 PORT = 5001
 
 s = socket.socket()
