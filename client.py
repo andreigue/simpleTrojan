@@ -14,7 +14,7 @@ def openConnection():
     print("Connection established")
 
 def closeConnection():
-    print("Closing Connection")
+    print("Closing Connection from client side")
     s.close()
 
 def sendFile(fileAbsPath):
@@ -37,5 +37,5 @@ def sendFile(fileAbsPath):
             s.sendall(dataRead)
 
 openConnection()
-sendFile('C:\\Users\\Chris\\Desktop\\bank.txt')
+# sendFile('C:\\Users\\...)
 closeConnection()

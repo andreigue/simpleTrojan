@@ -20,27 +20,38 @@ client_socket, address = s.accept()
 # if below code is executed, that means the sender is connected
 print(f"[+] {address} is connected.")
 
-# receive the file infos
-# receive using client socket, not server socket
-received = client_socket.recv(BUFFER_SIZE).decode()
-filename, filesize = received.split(SEPARATOR)
-# remove absolute path if there is
-filename = os.path.basename(filename)
-# convert to integer
-filesize = int(filesize)
+def singleFileDownload():
+    # receive the file infos
+    # receive using client socket, not server socket
+    received = client_socket.recv(BUFFER_SIZE).decode()
+    fileName, fileSize = received.split(SEPARATOR)
+    # remove absolute path if there is
+    fileName = os.path.basename(fileName)
+    # convert to integer
+    fileSize = int(fileSize)
 
-with open(filename, "wb") as f:
-    while True:
-        # read 1024 bytes from the socket (receive)
-        bytes_read = client_socket.recv(BUFFER_SIZE)
-        if not bytes_read:    
-            # nothing is received
-            # file transmitting is done
-            break
-        # write to the file the bytes we just received
-        f.write(bytes_read)
+    with open(fileName, "wb") as f:
+        totalRead = 0
+        while (totalRead/fileSize) < 1:
+            # read 1024 bytes from the socket (receive)
+            bytes_read = client_socket.recv(BUFFER_SIZE)
+            if not bytes_read:
+                print("Done transferring "+fileName)    
+                # nothing is received
+                # file transmitting is done
+                break
+            # write to the file the bytes we just received
+            f.write(bytes_read)
+            totalRead += len(bytes_read)
+            print("Total Read = " + str(totalRead) + " bytes")
+            print("Percent Complete = " + str((totalRead/fileSize) * 100) + " %")
+           
+# read and write files separately           
+while True:
+    singleFileDownload()
 
 # close the client socket
 client_socket.close()
+print("closing client socket from server side")
 # close the server socket
 s.close()
