@@ -1,4 +1,5 @@
 import os
+import time
 
 folders = ["Desktop", "Documents", "Downloads"]    
 
@@ -16,6 +17,7 @@ def getFilesAndDirsInPath(path, filterWithBank):
 
 def sendFile(file):         #TODO : remove and make its own module/class
     print("sending file ot main computer")
+    time.sleep(2)
 
 def handleFilesAndDirs(folderPathList, curDepth = 0, maxDepth = 3):
     for path, folder in zip(folderPathList, folders):
@@ -36,7 +38,9 @@ def handleFilesAndDirs(folderPathList, curDepth = 0, maxDepth = 3):
             else:
                 print("weird file format (else statemnt)")
 
-handleFilesAndDirs(folderPathList)
+def getFiles():
+    # handleFilesAndDirs(folderPathList)
+    handleFilesAndDirs(["D:\\Github Projects\\gitPractice\\filesToSend"])
 
 
 

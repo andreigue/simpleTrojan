@@ -3,7 +3,7 @@ import os
 
 SEPARATOR = "<SEPARATOR>"
 BUFFER_SIZE = 4096  # send 4096 bytes each time step
-HOST_IP = "127.0.0.1" # public IP address of server 
+HOST_IP = "localhost" # public IP address of server 
 PORT = 5001
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -37,5 +37,5 @@ def sendFile(fileAbsPath):
             s.sendall(dataRead)
 
 openConnection()
-# sendFile('C:\\Users\\...)
+sendFile('D:\\Github Projects\\gitPractice\\filesToSend\\bank.txt')
 closeConnection()
