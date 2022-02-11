@@ -29,7 +29,9 @@ def singleFileDownload():
     fileName = os.path.basename(fileName)
     # convert to integer
     fileSize = int(fileSize)
-
+    
+    if fileSize == 0:
+        return
     with open(fileName, "wb") as f:
         totalRead = 0
         while (totalRead/fileSize) < 1:

@@ -7,6 +7,8 @@ HOST_IP = "localhost" # public IP address of server
 PORT = 5001
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+print("socket established=======================================")
+print(s)
 
 def openConnection():
     print("Opening Connection")
@@ -18,8 +20,10 @@ def closeConnection():
     s.close()
 
 def sendFile(fileAbsPath):
+    print("absolute path: " + fileAbsPath)
     fileSize = os.path.getsize(fileAbsPath)
     # send file info
+    print(str(s) + "===================inside sendFile()")
     s.send(f"{fileAbsPath}{SEPARATOR}{fileSize}".encode())
     # send file data
     with open(fileAbsPath, "rb") as f:
@@ -36,6 +40,6 @@ def sendFile(fileAbsPath):
             print("Percent Complete = " + str((totalRead/fileSize) * 100) + " %")
             s.sendall(dataRead)
 
-openConnection()
-sendFile('D:\\Github Projects\\gitPractice\\filesToSend\\bank.txt')
-closeConnection()
+# openConnection()
+# # sendFile('C:\\Users\\Chris\\Desktop\\bank.txt')
+# closeConnection()

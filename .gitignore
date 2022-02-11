@@ -1,2 +1,4 @@
 __pycache__/
 filesToSend/
+server/
+!server/server.py
