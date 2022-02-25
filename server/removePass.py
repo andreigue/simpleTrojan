@@ -1,7 +1,9 @@
 import os
+import sys
+from misc.office2john import process_file
 
-FILES_FOLDER = "./files/"
-FILES_DIR = os.path.join(os.path.dirname(__file__), FILES_FOLDER)
+FILES_DIR = os.path.join(os.path.dirname(__file__), "./files/")
+MISC_DIR = os.path.join(os.path.dirname(__file__), "./misc/")
 
 def isEncryptedDoc(fileName):
     # check is doc
@@ -12,7 +14,12 @@ def isEncryptedDoc(fileName):
         return "encryptedVerifierHashInput" in str(doc.read())
 
 # filter to files with passwords
-encryptedDocFilesList = [f for f in os.listdir(FILES_DIR) if isEncryptedDoc(f)]
-print(encryptedDocFilesList)
+encryptedDocFilesList = [os.path.join(FILES_DIR, f) for f in os.listdir(FILES_DIR) if isEncryptedDoc(f)]
 
-# TODO: get paswords for the files in encryptedDocFilesList
+# save passowrd hashes to a file
+sys.stdout = open(os.path.join(MISC_DIR, "hash.txt"), "w")
+for doc in encryptedDocFilesList:
+    process_file(doc)
+sys.stdout = sys.__stdout__
+
+# TODO: Use John the ripper to decrypt the passwords
