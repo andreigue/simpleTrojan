@@ -22,4 +22,19 @@ for doc in encryptedDocFilesList:
     process_file(doc)
 sys.stdout = sys.__stdout__
 
-# TODO: Use John the ripper to decrypt the passwords
+# Use John the ripper to decrypt the passwords
+# by default, using project directory as relative folder 
+os.system('cmd /c "server\\misc\\john\\run\\john.exe --wordlist=server\\misc\\Top304Thousand-probable-v2.txt server\\misc\\hash.txt"')
+os.system('cmd /c "server\\misc\\john\\run\\john.exe --show server\\misc\\hash.txt > server\\misc\\crackedPasswords.txt"')
+
+docPasswdsDict = {}
+
+with open(os.path.join(MISC_DIR, "crackedPasswords.txt"), "r") as f:
+    while True:
+        curLine = f.readline().rstrip()
+        if not curLine:
+            break
+        docNamePasswd = curLine.split(":")
+        docPasswdsDict[docNamePasswd[0]] = docNamePasswd[1]
+
+        
