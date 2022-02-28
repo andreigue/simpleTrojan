@@ -1,7 +1,7 @@
 __pycache__/
 filesToSend/
 
-server/files/
+server/files/*
 
 !server/misc/
 server/misc/john
