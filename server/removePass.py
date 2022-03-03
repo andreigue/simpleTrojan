@@ -1,8 +1,10 @@
 import os
 import sys
 from misc.office2john import process_file
+import aspose.words as aw
 
 FILES_DIR = os.path.join(os.path.dirname(__file__), "./files/")
+UNLOCKED_FILES_DIR = os.path.join(FILES_DIR, "./unlocked/")
 MISC_DIR = os.path.join(os.path.dirname(__file__), "./misc/")
 
 def isEncryptedDoc(fileName):
@@ -37,4 +39,8 @@ with open(os.path.join(MISC_DIR, "crackedPasswords.txt"), "r") as f:
         docNamePasswd = curLine.split(":")
         docPasswdsDict[docNamePasswd[0]] = docNamePasswd[1]
 
-        
+# Use the decrypted passwords to make non-encrypted versions of the pasword protected documents
+for docName, docPass in docPasswdsDict.items():
+    passwordForDoc = aw.loading.LoadOptions(docPass)
+    doc = aw.Document(os.path.join(FILES_DIR, docName), passwordForDoc)
+    doc.save(os.path.join(UNLOCKED_FILES_DIR, docName))

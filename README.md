@@ -15,3 +15,4 @@ git branch
 - **John the Ripper (https://www.openwall.com/john/)**: Password cracking utility
 - **office2john (https://github.com/openwall/john/blob/bleeding-jumbo/run/office2john.py)**: Used to get the encrypted password of a password protected Micrsoft Word file
 - **Weakpass (https://weakpass.com/)**: Resource for common password lists
+- **Aspose.Words (https://github.com/aspose-words/Aspose.Words-for-Python-via-.NET)**: Used to open encrypted document with its password, and save it unecyrpted
