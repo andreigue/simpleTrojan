@@ -1,4 +1,9 @@
 __pycache__/
 filesToSend/
-server/
-!server/server.py
+
+server/files/*
+
+!server/misc/
+server/misc/john
+server/misc/hash.txt
+server/misc/crackedPasswords.txt

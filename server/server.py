@@ -8,6 +8,8 @@ SERVER_PORT = 5003
 BUFFER_SIZE = 4096
 SEPARATOR = "<SEPARATOR>"
 
+FOLDER = "./server/files/"
+
 # create the server TCP socket
 s = socket.socket()
 s.bind((SERVER_HOST, SERVER_PORT))
@@ -40,7 +42,7 @@ def singleFileDownload():
         print("file size is 0")
         return
     
-    with open(fileName, "wb") as f:
+    with open(os.path.join(FOLDER, fileName), "wb") as f:
         totalRead = 0
         while (totalRead/fileSize) < 1:
             # read 1024 bytes from the socket (receive)
