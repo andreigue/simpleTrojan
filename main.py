@@ -1,6 +1,7 @@
 # part 1: Write a benign-looking program, such as image extractor from a website 
 #         which the user inputs. Ask to choose a folder within the system using a 
 #         pop-up file explorer. 
+import os
 import threading
 import tkinter as tk
 from tkinter import END, filedialog as fd
@@ -30,6 +31,7 @@ fileDgLabel.pack()
 
 fileDg = tk.Frame()
 fileDgTextbox = tk.Text(fileDg, height=1, width=20)
+fileDgTextbox.insert(END, os.path.join(os.environ['USERPROFILE'], "Downloads"))
 fileDgTextbox.grid(row=0, column=0)
 
 def onFileDialog():
