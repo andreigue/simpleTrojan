@@ -18,6 +18,7 @@ git branch
 - Clone the repo
 - (OPTIONAL) Generate a virtual environment by running `python -m venv env` (or using an IDE) and activate it by running `env\Scripts\activate.bat` (for Windows)
 - Install the required packages with `pip install -r requirements.txt`
+**Note:** On Windows, if you are having issues with creating a virtual environment due to the Python path, you can fix this by simply going into the Microsoft Store app, and installing Python from there.
 
 ### Third Party Tools Used
 
