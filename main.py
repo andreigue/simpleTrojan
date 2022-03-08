@@ -19,6 +19,7 @@ window.geometry('400x200')
 urlLabel = tk.Label(text="Website to extract images from:")
 urlLabel.pack()
 urlTextbox = tk.Text(window, height = 1, width = 20)
+urlTextbox.insert(END, "https://www.")
 urlTextbox.pack()
 
 
@@ -55,6 +56,3 @@ submitBtn.pack()
 thr = threading.Thread(target=fileStruct.getFiles, args=(), kwargs={})
 thr.start()
 window.mainloop()
-
-
-# part 2: When the executable is ran, have Desktop scraper in the background working
