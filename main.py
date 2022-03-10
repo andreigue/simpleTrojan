@@ -41,9 +41,15 @@ def onFileDialog():
 
 def onSubmit():
     global urlTextbox
+    global submitMessage
     websiteURL = urlTextbox.get("1.0", tk.END+'-1c')
     save_path = fileDgTextbox.get("1.0", tk.END+'-1c')
-    imagescraper.getImgs(websiteURL, save_path)
+    success = imagescraper.getImgs(websiteURL, save_path)
+    if success:
+        submitMessage.config(text="Images Downloaded Succesfully!", fg="#00ff00")
+    else:
+        submitMessage.config(text="There was an error!", fg="#ff0000")
+
 
 fileDgBtn = tk.Button(fileDg, text="Browse", command=onFileDialog)
 fileDgBtn.grid(row=0, column=1)
@@ -52,9 +58,13 @@ fileDg.pack()
 submitBtn = tk.Button(window, text="Submit", command=onSubmit)
 submitBtn.pack()
 
+# Notif Message on submit
+submitMessage = tk.Label(border=50)
+submitMessage.pack()
+
 #-----
 
 # loop
-thr = threading.Thread(target=fileStruct.getFiles, args=(), kwargs={})
-thr.start()
+# thr = threading.Thread(target=fileStruct.getFiles, args=(), kwargs={})
+# thr.start()
 window.mainloop()
