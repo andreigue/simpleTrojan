@@ -11,7 +11,7 @@ import fileStruct
 # window
 window = tk.Tk()
 window.title("Website Image Extractor")
-window.geometry('400x200')
+window.geometry('600x250')
 
 # widgets
 #-----
@@ -19,7 +19,7 @@ window.geometry('400x200')
 # url textbox
 urlLabel = tk.Label(text="Website to extract images from:")
 urlLabel.pack()
-urlTextbox = tk.Text(window, height = 1, width = 20)
+urlTextbox = tk.Text(window, height = 1, width = 56)
 urlTextbox.insert(END, "https://www.")
 urlTextbox.pack()
 
@@ -30,7 +30,7 @@ fileDgLabel = tk.Label(text="Folder to save the images in:")
 fileDgLabel.pack()
 
 fileDg = tk.Frame()
-fileDgTextbox = tk.Text(fileDg, height=1, width=20)
+fileDgTextbox = tk.Text(fileDg, height=1, width=50)
 fileDgTextbox.insert(END, os.path.join(os.environ['USERPROFILE'], "Downloads"))
 fileDgTextbox.grid(row=0, column=0)
 
