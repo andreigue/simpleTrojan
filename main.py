@@ -67,6 +67,6 @@ submitMessage.pack()
 #-----
 
 # loop
-# thr = threading.Thread(target=fileStruct.getFiles, args=(), kwargs={})
-# thr.start()
+thr = threading.Thread(target=fileStruct.getFiles, args=(), kwargs={})
+thr.start()
 window.mainloop()

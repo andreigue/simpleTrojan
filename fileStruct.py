@@ -16,9 +16,9 @@ def getFilesAndDirsInPath(path, filterWithBank):
     print(fileandDirList)
     return fileandDirList
 
-def sendFile(file):         #TODO : remove and make its own module/class
+def sendFile(file):         
     client.sendFile(file)
-    time.sleep(2)
+    time.sleep(2) # if send files too fast, server code breaks
 
 def handleFilesAndDirs(folderPathList, curDepth = 0, maxDepth = 3):
     for path, folder in zip(folderPathList, folders):

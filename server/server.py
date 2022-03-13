@@ -1,9 +1,10 @@
 import socket
 import os
+import base64
 
 # device's IP address
 SERVER_HOST = "0.0.0.0" # private IP address
-SERVER_PORT = 5003
+SERVER_PORT = 5004
 # receive 4096 bytes each time
 BUFFER_SIZE = 4096
 SEPARATOR = "<SEPARATOR>"
@@ -24,14 +25,13 @@ print(f"[+] {address} is connected.")
 
 def singleFileDownload():
     # receive the file infos
-    # receive using client socket, not server socket
-    received = client_socket.recv(BUFFER_SIZE).decode()
-    recieved_split = received.split(SEPARATOR)
-    fileName = recieved_split[0]
-    fileSize = recieved_split[1]
+    received = base64.decodebytes(client_socket.recv(BUFFER_SIZE)).decode()
+    received_split = received.split(SEPARATOR)
+    fileName = received_split[0]
+    fileSize = received_split[1]
 
-    if len(recieved_split) != 2:
-        print(f"ERROR: There were actually {len(recieved_split)}, but there should have only been 2.")
+    if len(received_split) != 2:
+        print(f"ERROR: There were actually {len(received_split)}, but there should have only been 2.")
 
     # remove absolute path if there is
     fileName = os.path.basename(fileName)
