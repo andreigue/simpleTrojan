@@ -4,8 +4,8 @@ import time
 
 SEPARATOR = "<SEPARATOR>"
 BUFFER_SIZE = 4096  # send 4096 bytes each time step
-HOST_IP = "0.tcp.ngrok.io" # public IP address of server 
-PORT = 11065
+HOST_IP = 'localhost' # "0.tcp.ngrok.io" # public IP address of server 
+PORT = 5005
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print("socket established=======================================")

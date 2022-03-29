@@ -3,12 +3,12 @@ import os
 
 # device's IP address
 SERVER_HOST = "0.0.0.0" # private IP address
-SERVER_PORT = 5003
+SERVER_PORT = 5005
 # receive 4096 bytes each time
 BUFFER_SIZE = 4096
 SEPARATOR = "<SEPARATOR>"
 
-FOLDER = "./server/files/"
+FOLDER = os.path.join(os.path.dirname(__file__), "./files/")
 
 # create the server TCP socket
 s = socket.socket()
