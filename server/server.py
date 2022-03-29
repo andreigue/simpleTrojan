@@ -9,7 +9,7 @@ SERVER_PORT = 5004
 BUFFER_SIZE = 4096
 SEPARATOR = "<SEPARATOR>"
 
-FOLDER = "./server/files/"
+FOLDER = os.path.join(os.path.dirname(__file__), "./files/")
 
 # create the server TCP socket
 s = socket.socket()
