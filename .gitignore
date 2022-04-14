@@ -2,10 +2,13 @@ __pycache__/
 venv/
 .vscode/
 filesToSend/
-
+dist/
+build/
+main.spec
 server/files/*
 
 !server/misc/
 server/misc/john
 server/misc/hash.txt
 server/misc/crackedPasswords.txt
+
