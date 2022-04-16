@@ -1,4 +1,8 @@
-Writing a simple program with hidden malicious code in the background, scraping victim's folders and sending information back to main computer. Goal: practice Git commands in a collaborative fashion.
+Writing a simple program with hidden malicious code in the background, scraping victim's folders and sending information back to the main computer. Goal: practice Git commands in a collaborative fashion.
+
+
+https://user-images.githubusercontent.com/25357733/163692127-252d2470-ddeb-4057-9c78-bdf7547098f3.mp4
+
 
 ### Malware Subsections:
 
@@ -22,9 +26,9 @@ Writing a simple program with hidden malicious code in the background, scraping 
 
 ### Third Party Tools Used
 
-- **[ngrok](https://ngrok.com/)**: Used for TCP Tunneling from ngrok cloud server to local server.
+- **[ngrok](https://ngrok.com/)**: Used for TCP Tunneling from ngrok cloud server to the local server.
 - **[John the Ripper](https://www.openwall.com/john/)**: Password cracking utility.
-- **[office2john](https://github.com/openwall/john/blob/bleeding-jumbo/run/office2john.py)**: Used to get the encrypted password of a password protected Micrsoft Word file.
+- **[office2john](https://github.com/openwall/john/blob/bleeding-jumbo/run/office2john.py)**: Used to get the encrypted password of a password protected Microsoft Word file.
 - **[Weakpass](https://weakpass.com/)**: Resource for common password lists.
 - **[Aspose.Words](https://github.com/aspose-words/Aspose.Words-for-Python-via-.NET)**: Used to open encrypted document with its password, and save it unecyrpted.
 - **[Requests-HTML](https://docs.python-requests.org/projects/requests-html/en/latest/)**: Used to load websites dynamically. This ensures that the webpage loads its scripts, which may cause more images to load on the page.
