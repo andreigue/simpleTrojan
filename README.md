@@ -2,6 +2,7 @@ Writing a simple program with hidden malicious code in the background, scraping 
 
 
 https://user-images.githubusercontent.com/25357733/163692127-252d2470-ddeb-4057-9c78-bdf7547098f3.mp4
+
 Youtube link: https://www.youtube.com/watch?v=ShEX6RL_HXA
 
 ### Malware Subsections:
